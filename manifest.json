@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Middle Click Ticket Opener",
+  "version": "1.0",
+  "description": "Automates opening tickets in a new tab and switching back.",
+  "permissions": ["tabs", "activeTab", "scripting"],
+  "host_permissions": ["*://na.myconnectwise.net/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://na.myconnectwise.net/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
