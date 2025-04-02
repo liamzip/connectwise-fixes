@@ -1,4 +1,4 @@
-1. Unzip the entire package if you have not already.
+1. Download and unzip the entire package if you have not already.
 
 2. Go into chrome://extensions and enable Developer mode (top right)
 
