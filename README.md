@@ -59,10 +59,15 @@ connectwise-fixes/
 
 - **Manifest Version**: 3 (current Chrome extension standard)
 - **Permissions**: 
-  - `tabs` - Manages browser tabs
-  - `activeTab` - Accesses the active tab
-  - `scripting` - Injects content scripts
+  - `tabs` - Restores focus to the original ticket tab after a user middle-click action
 - **Host Permissions**: Limited to `*://na.myconnectwise.net/*`
+
+## Security Notes
+
+- The extension does not bundle third-party packages or remote scripts.
+- Runtime messages are accepted only from this extension's own ConnectWise content script context.
+- Content-script automation reacts only to trusted user middle-clicks, which helps prevent page scripts from triggering extension behavior synthetically.
+- The extension's permissions are intentionally limited to the ConnectWise host and the `tabs` permission required for tab-focus restoration.
 
 ## How It Works
 
