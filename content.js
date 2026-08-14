@@ -5,10 +5,7 @@ try {
     if (element && element.textContent) {
       let title = element.textContent.trim();
       title = title.replace(/^Service Ticket\s*/, ""); // Remove "Service Ticket" prefix
-      console.log("Element found for renaming tab:", title); // Debugging log
       document.title = title; // Update the <title> tag
-    } else {
-      console.log("No element found for renaming tab"); // Debugging log
     }
   }
 
@@ -24,11 +21,13 @@ try {
 
   // Middle-click functionality
   document.addEventListener("mousedown", (event) => {
+    if (!event.isTrusted) {
+      return;
+    }
+
     if (event.button === 1) { // Middle mouse button
-      console.log("Middle click detected"); // Debugging log
       const targetElement = event.target;
       if (targetElement) {
-        console.log("Target element found:", targetElement); // Debugging log
         event.preventDefault();
 
         // Check if chrome.runtime is available
@@ -56,7 +55,6 @@ try {
               clientY: event.clientY + 20, // Adjust offset as needed
             });
             document.elementFromPoint(event.clientX + 50, event.clientY + 20)?.dispatchEvent(leftClickEvent);
-            console.log("Left click simulated at offset position"); // Debugging log
 
             // Notify background script to switch back to the original tab
             chrome.runtime.sendMessage({ action: "focusOriginalTab" });
@@ -64,8 +62,6 @@ try {
         } else {
           console.error("chrome.runtime.sendMessage is not available in this context.");
         }
-      } else {
-        console.log("No target element found for middle click"); // Debugging log
       }
     }
   });

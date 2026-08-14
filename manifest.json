@@ -3,7 +3,7 @@
   "name": "Middle Click Ticket Opener",
   "version": "1.0",
   "description": "Automates opening tickets in a new tab and switching back.",
-  "permissions": ["tabs", "activeTab", "scripting"],
+  "permissions": ["tabs"],
   "host_permissions": ["*://na.myconnectwise.net/*"],
   "background": {
     "service_worker": "background.js"
