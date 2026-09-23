@@ -1,10 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Middle Click Ticket Opener</title>
+  <title>Connectwise Fixes - Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+      width: 280px;
+      margin: 0;
+      padding: 12px 16px 16px;
+      color: #1f1f1f;
+    }
+    h1 {
+      font-size: 15px;
+      margin: 0 0 4px;
+    }
+    p.subtitle {
+      font-size: 11px;
+      color: #666;
+      margin: 0 0 12px;
+    }
+    label.setting {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 0;
+      border-top: 1px solid #eee;
+      cursor: pointer;
+    }
+    label.setting:first-of-type {
+      border-top: none;
+    }
+    label.setting input {
+      margin-top: 2px;
+    }
+    .setting-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .setting-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .setting-desc {
+      font-size: 11px;
+      color: #666;
+    }
+    #status {
+      font-size: 11px;
+      color: #2e7d32;
+      height: 14px;
+      margin-top: 8px;
+    }
+    .footer {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #eee;
+      font-size: 11px;
+    }
+    .footer a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>Extension Active</h1>
-  <p>Middle-click a ticket to open it in a new tab.</p>
+  <h1>ConnectWise Fixes</h1>
+  <p class="subtitle">Enable or disable each feature below.</p>
+
+  <label class="setting">
+    <input type="checkbox" id="enableTabRename" />
+    <span class="setting-text">
+      <span class="setting-title">Ticket number in tab title</span>
+      <span class="setting-desc">Renames the browser tab to the ticket number.</span>
+    </span>
+  </label>
+
+  <label class="setting">
+    <input type="checkbox" id="enableMiddleClick" />
+    <span class="setting-text">
+      <span class="setting-title">Middle-click to open tickets</span>
+      <span class="setting-desc">Middle-click opens a ticket in a new tab and returns focus.</span>
+    </span>
+  </label>
+
+  <label class="setting">
+    <input type="checkbox" id="enableAutoAllTab" />
+    <span class="setting-text">
+      <span class="setting-title">Auto-open "All" notes tab</span>
+      <span class="setting-desc">Automatically selects the All notes tab when a ticket opens.</span>
+    </span>
+  </label>
+
+  <div id="status"></div>
+
+  <div class="footer">
+    <a href="https://github.com/liamzip/connectwise-fixes" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>
